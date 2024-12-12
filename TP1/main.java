@@ -1,7 +1,11 @@
-public class main {
+import Controllers.EmployeeController;
+import DAO.EmployeeDAOImpl;
+import Views.EmployeeView;
 
- public static void main(String[] args) {
-    
-    System.out.println("hello world");
- }
+public class Main {
+  public static void main(String[] args) {
+    EmployeeDAOImpl dao = new EmployeeDAOImpl();
+    EmployeeController ec = new EmployeeController();
+    EmployeeView ev = new EmployeeView();
+  }
 }
