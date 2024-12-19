@@ -7,7 +7,7 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
-public class EmployeeView extends JFrame {
+public class EmployeeView extends  {
   private JPanel pan = new JPanel();
   private JPanel tabPan = new JPanel();
   private JPanel panOne = new JPanel();
