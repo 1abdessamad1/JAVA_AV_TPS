@@ -1,7 +1,7 @@
 package Controllers;
 
 import Models.EmployeeModel;
-import View.EmployeeView;
+import Views.EmployeeView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.event.ListSelectionEvent;

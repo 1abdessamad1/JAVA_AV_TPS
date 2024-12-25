@@ -10,7 +10,7 @@ public class Main {
     JFrame frame = new JFrame();
     frame.setTitle("Employees & Holidays Management");
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    frame.setSize(800, 500);
+    frame.setSize(800, 500); 
 
     // Employee
     JPanel eview = new EmployeeView();

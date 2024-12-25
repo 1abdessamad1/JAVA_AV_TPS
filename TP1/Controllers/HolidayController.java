@@ -1,14 +1,14 @@
 package Controllers;
 
 import Models.HolidayModel;
-import View.HolidayView;
+import Views.HolidayView;
 import java.awt.event.*;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import Model.EmployeeModel;
+import Models.EmployeeModel;
 
 public class HolidayController {
   private HolidayModel model = null;
