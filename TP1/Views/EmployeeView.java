@@ -1,85 +1,85 @@
 package Views;
 
-import Controllers.EmployeeController;
-import Models.Employee.Post;
-import Models.Employee.Role;
+import Models.EmployeeModel.Post;
+import Models.EmployeeModel.Role;
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
-public class EmployeeView extends  {
-  private JPanel pan = new JPanel();
-  private JPanel tabPan = new JPanel();
-  private JPanel panOne = new JPanel();
-  private JPanel panTwo = new JPanel();
+public class EmployeeView extends JPanel {
 
-  public static JTextField idField = new JTextField();
-  public static JTextField lnameField = new JTextField("lname");
-  public static JTextField fnameField = new JTextField("fname");
-  public static JTextField emailField = new JTextField("email");
-  public static JTextField phoneField = new JTextField("+21200110055");
-  public static JTextField salaryField = new JTextField("5000");
+  private JPanel inputsPanel = new JPanel();
+  private JPanel tablePanel = new JPanel();
+  private JPanel buttonsPanel = new JPanel();
 
-  public static JComboBox<Role> roleComboBox = new JComboBox<>(Role.values());
-  public static JComboBox<Post> postComboBox = new JComboBox<>(Post.values());
+  public JButton addBtn = new JButton("Add");
+  public JButton deleteBtn = new JButton("Delete");
+  public JButton updateBtn = new JButton("Update");
+  public JButton showBtn = new JButton("Show");
+  public JButton fillBtn = new JButton("Fill");
 
-  public static JButton addBtn = new JButton("Add");
-  public static JButton delBtn = new JButton("Delete");
-  public static JButton updateBtn = new JButton("Update");
-  public static JButton showBtn = new JButton("Show");
+  public JTextField lnameField = new JTextField();
+  public JTextField fnameField = new JTextField();
+  public JTextField emailField = new JTextField();
+  public JTextField phoneField = new JTextField();
+  public JTextField salaryField = new JTextField();
 
-  public static JTable tab = new JTable();
-  public static DefaultTableModel tabModel = new DefaultTableModel();
+  public JComboBox<Role> roleComboBox = new JComboBox<>(Role.values());
+  public JComboBox<Post> postComboBox = new JComboBox<>(Post.values());
+
+  public JTable table = new JTable();
+  public DefaultTableModel tableModel = new DefaultTableModel();
 
   public EmployeeView() {
-    this.setTitle("Employees management");
-    this.setSize(800, 400);
-    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     this.setLayout(new BorderLayout());
-    this.add(pan, BorderLayout.NORTH);
-    this.add(tabPan, BorderLayout.CENTER);
+    this.add(inputsPanel, BorderLayout.NORTH);
+    this.add(tablePanel, BorderLayout.CENTER);
+    this.add(buttonsPanel, BorderLayout.SOUTH);
 
-    pan.setLayout(new GridLayout(2, 1));
-    pan.add(panOne);
-    pan.add(panTwo);
+    tablePanel.setLayout(new BorderLayout());
+    tablePanel.add(new JScrollPane(table));
+    tableModel.setRowCount(0);
+    tableModel.addColumn("ID");
+    tableModel.addColumn("Last name");
+    tableModel.addColumn("First name");
+    tableModel.addColumn("Email");
+    tableModel.addColumn("Phone");
+    tableModel.addColumn("Salary");
+    tableModel.addColumn("Post");
+    tableModel.addColumn("Role");
+    tableModel.addColumn("Solde");
+    table.getTableHeader().setReorderingAllowed(false);
+    table.setModel(tableModel);
 
-    tabPan.add(new JScrollPane(tab));
-    tabModel.setRowCount(0);
-    tabModel.addColumn("ID");
-    tabModel.addColumn("Last name");
-    tabModel.addColumn("First name");
-    tabModel.addColumn("Email");
-    tabModel.addColumn("Phone");
-    tabModel.addColumn("Salary");
-    tabModel.addColumn("Post");
-    tabModel.addColumn("Role");
-    tab.setModel(tabModel);
+    inputsPanel.setLayout(new GridLayout(7, 2));
+    inputsPanel.add(new JLabel("Last name"));
+    inputsPanel.add(lnameField);
+    inputsPanel.add(new JLabel("First name"));
+    inputsPanel.add(fnameField);
+    inputsPanel.add(new JLabel("Email"));
+    inputsPanel.add(emailField);
+    inputsPanel.add(new JLabel("Phone"));
+    inputsPanel.add(phoneField);
+    inputsPanel.add(new JLabel("Salary"));
+    inputsPanel.add(salaryField);
+    inputsPanel.add(new JLabel("Role"));
+    inputsPanel.add(roleComboBox);
+    inputsPanel.add(new JLabel("Post"));
+    inputsPanel.add(postComboBox);
 
-    panOne.setLayout(new GridLayout(8, 2));
-    panOne.add(new JLabel("ID"));
-    panOne.add(idField);
-    panOne.add(new JLabel("Last name"));
-    panOne.add(lnameField);
-    panOne.add(new JLabel("First name"));
-    panOne.add(fnameField);
-    panOne.add(new JLabel("Email"));
-    panOne.add(emailField);
-    panOne.add(new JLabel("Phone"));
-    panOne.add(phoneField);
-    panOne.add(new JLabel("Salary"));
-    panOne.add(salaryField);
-    panOne.add(new JLabel("Role"));
-    panOne.add(roleComboBox);
-    panOne.add(new JLabel("Post"));
-    panOne.add(postComboBox);
+    buttonsPanel.setLayout(new FlowLayout());
+    buttonsPanel.add(addBtn);
+    buttonsPanel.add(deleteBtn);
+    buttonsPanel.add(updateBtn);
+    buttonsPanel.add(showBtn);
+    buttonsPanel.add(fillBtn);
+  }
 
-    panTwo.setLayout(new FlowLayout(FlowLayout.CENTER));
-    panTwo.add(addBtn);
-    panTwo.add(delBtn);
-    panTwo.add(updateBtn);
-    panTwo.add(showBtn);
+  public void showSuccess(String message) {
+    JOptionPane.showMessageDialog(null, message, null, JOptionPane.INFORMATION_MESSAGE);
+  }
 
-    EmployeeController.populateTable();
-    this.setVisible(true);
+  public void showFailure(String message) {
+    JOptionPane.showMessageDialog(null, message, null, JOptionPane.ERROR_MESSAGE);
   }
 }
