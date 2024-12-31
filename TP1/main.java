@@ -1,6 +1,6 @@
-import Controllers.*;
-import Models.*;
-import Views.*;
+import Controller.*;
+import Model.*;
+import View.*;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
@@ -10,7 +10,7 @@ public class Main {
     JFrame frame = new JFrame();
     frame.setTitle("Employees & Holidays Management");
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    frame.setSize(800, 500); 
+    frame.setSize(800, 500);
 
     // Employee
     JPanel eview = new EmployeeView();

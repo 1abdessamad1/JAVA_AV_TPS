@@ -4,18 +4,18 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class DBConnection {
-   public String url = "jdbc:mysql://localhost:3306/java_testing";
-  public String dbuser = "root";
-  public String dbpw = "";
+  private String url = "jdbc:mysql://localhost:3306/java_testing";
+  private String dbuser = "root";
+  private String dbpw = "";
 
   private static Connection con = null;
 
   public DBConnection() {
     if (con != null) return;
     try {
-      Class.forName("org.postgresql.Driver");
+      Class.forName("com.mysql.jdbc.Driver");
       con = DriverManager.getConnection(url, dbuser, dbpw);
-      System.out.println("DataBase Connection established!!");
+      System.out.println("Database Connection established!!");
     } catch (Exception e) {
       System.err.println(e);
     }

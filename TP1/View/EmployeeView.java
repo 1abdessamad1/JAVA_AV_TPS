@@ -1,7 +1,7 @@
-package Views;
+package View;
 
-import Models.EmployeeModel.Post;
-import Models.EmployeeModel.Role;
+import Model.EmployeeModel.Post;
+import Model.EmployeeModel.Role;
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -17,6 +17,8 @@ public class EmployeeView extends JPanel {
   public JButton updateBtn = new JButton("Update");
   public JButton showBtn = new JButton("Show");
   public JButton fillBtn = new JButton("Fill");
+  public JButton importBtn = new JButton("Import");
+  public JButton exportBtn = new JButton("Export");
 
   public JTextField lnameField = new JTextField();
   public JTextField fnameField = new JTextField();
@@ -73,6 +75,8 @@ public class EmployeeView extends JPanel {
     buttonsPanel.add(updateBtn);
     buttonsPanel.add(showBtn);
     buttonsPanel.add(fillBtn);
+    buttonsPanel.add(importBtn);
+    buttonsPanel.add(exportBtn);
   }
 
   public void showSuccess(String message) {
